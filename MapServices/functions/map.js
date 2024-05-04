@@ -1,17 +1,29 @@
 // Initialize and add the map
 let map;
+var searchButtons = document.getElementsByClassName("search");
 
-async function MapServices() {
+// Loop through the HTMLCollection
+for (var i = 0; i < searchButtons.length; i++) {
+    // Attach event listener to each button
+    (function(index) {
+        var buttonText = searchButtons[index].textContent// Capture the text content of the button
+        searchButtons[index].addEventListener("click", function() {
+            MapServices(buttonText); // Pass the captured text as a parameter
+        });
+    })(i);
+}
+async function MapServices(textContent) {
     const position = { lat: 25.344, lng: 131.031 };
     const { Map } = await google.maps.importLibrary("maps");
     const { AdvancedMarkerElement } = await google.maps.importLibrary("marker");
     const { Geocoder } = await google.maps.importLibrary("geocoding")
     const geocoder = new Geocoder()
     const { Place, SearchNearbyRankPreference } = await google.maps.importLibrary("places");
-    // const zipCode = document.getElementById("zipCodeInput").value;
-    const zipCode = "11357"
-    console.log()
-    const textQuery = "food bank near me"
+    const zipCodeInput = document.getElementById("zipCodeInput");
+    const zipCode = zipCodeInput.value;
+    console.log(textContent)
+    console.log(zipCode)
+    const textQuery = textContent
     map = new Map(document.getElementById("map"), {
         zoom: 12,
         center: position,
@@ -30,7 +42,7 @@ async function MapServices() {
                 // required parameters
                 textQuery: textQuery,
                 fields: ["displayName", "location", "businessStatus"],
-                maxResultCount: 5,
+                maxResultCount: 10,
                 language: "en-US",
                 region: "us",
             };
@@ -67,10 +79,3 @@ async function MapServices() {
 
 }
 
-var searchButtons = document.getElementsByClassName("search");
-
-// Loop through the HTMLCollection
-for (var i = 0; i < searchButtons.length; i++) {
-    // Attach event listener to each button
-    searchButtons[i].addEventListener("click", MapServices);
-}
