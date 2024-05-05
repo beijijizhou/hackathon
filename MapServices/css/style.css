@@ -78,7 +78,11 @@ a:hover
 
 }
 
- 
+.grid-container {
+      display: grid;
+      grid-template-columns: 20% 80%; /* Define two columns with specified widths */
+      grid-gap: 10px; /* Optional gap between grid items */
+    }
 
 #main_body
 {
