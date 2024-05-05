@@ -1,0 +1,33 @@
+/**Search CSS***/
+.search_container 
+{
+      display: flex;
+      justify-content: center;
+      margin-top:4em;
+      line-height: 2em;
+
+}
+    
+#zipCodeInput,.search_box 
+{
+      border: 1px solid #ccc;
+      width: 400px;
+      border-right: none;
+      line-height: 2em;
+}
+    
+#search,.search_button 
+{
+      border: none;
+      background: #000066;
+      color: #fff;
+      border-radius: 5px;
+      cursor: pointer;
+      line-height: 2em;
+      text-align: center;
+}
+
+#search:hover
+{
+      background:#E41B23;
+}

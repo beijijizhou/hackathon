@@ -1,0 +1,145 @@
+ 
+ul
+{
+  list-style: none;
+}
+
+a{
+      text-decoration: none;
+}
+
+a:hover
+{
+      text-decoration: underline;
+}
+
+#wrap
+{
+    width: 100%;
+    height: auto;
+   
+}
+
+#wrap_body
+{
+      max-width: 1024px;
+      height: auto;
+      margin: 0px auto;
+}
+
+#header
+{
+      width:100%;
+      height: auto;
+
+}
+
+
+#logo
+{
+      padding: 0px;
+      margin: 0px;
+      height: auto;
+      background: url("../images/logo.png") no-repeat;
+      background-position:left;
+      background-size:contain;
+      display: block;
+      line-height: 3em;
+      cursor: pointer;
+      left: 0px;
+
+}
+ 
+
+
+/*****Header's Grid*******/
+ 
+.logo
+{
+      grid-area: logo;
+ 
+}
+ 
+.google_translate
+{
+      grid-area: google_translate; 
+}
+
+.blank_top
+{
+      grid-area: blank_top; 
+}
+
+.header
+{
+      display: grid;
+      grid-template-columns:1fr 2fr 1fr;
+      grid-template-areas: "logo blank_top google_translate";
+
+}
+
+ 
+
+#main_body
+{
+      width:100%;
+      height: auto;
+      margin: 0px;
+      padding: 0px;
+      margin-top: 5em;
+      margin-bottom: 3em;
+}
+
+#finder
+{
+      text-align: center;
+
+}
+
+find_sevices
+{
+      font-family: "MARBOLD";
+      src:url("fonts/MARBOLD.TTF");
+      font-size:5.2em;
+      color:#000066;       
+}
+
+grey_font
+{
+      color: grey;
+      font-family: 'arial';
+      font-size: 1em;
+
+}
+
+#footer
+{
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      padding-top: 5em;
+      width: 100%;
+      line-height: 3em;
+      text-align: center;
+      font-family: 'Helvetica';
+      src:url("fonts/Helvetica-Bold.ttf");
+      text-transform: capitalize; 
+      font-size: 0.5em;
+      margin: 0px auto;
+      color: white;
+      background: linear-gradient(to right,#E41B23, #000066);
+
+}
+
+.google_translate
+{
+      height: auto;
+      width:5em;
+}
+
+.search_map
+{
+      width: 100%;
+      height: 50em;
+      line-height: 50em;
+}

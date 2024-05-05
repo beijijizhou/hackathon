@@ -1,37 +1,106 @@
-<!doctype html>
-<!--
- @license
- Copyright 2019 Google LLC. All Rights Reserved.
- SPDX-License-Identifier: Apache-2.0
--->
+<!DOCTYPE html>
 <html>
-
 <head>
-  <title>Add Map</title>
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <script>(g => { var h, a, k, p = "The Google Maps JavaScript API", c = "google", l = "importLibrary", q = "__ib__", m = document, b = window; b = b[c] || (b[c] = {}); var d = b.maps || (b.maps = {}), r = new Set, e = new URLSearchParams, u = () => h || (h = new Promise(async (f, n) => { await (a = m.createElement("script")); e.set("libraries", [...r] + ""); for (k in g) e.set(k.replace(/[A-Z]/g, t => "_" + t[0].toLowerCase()), g[k]); e.set("callback", c + ".maps." + q); a.src = `https://maps.${c}apis.com/maps/api/js?` + e; d[q] = f; a.onerror = () => h = n(Error(p + " could not load.")); a.nonce = m.querySelector("script[nonce]")?.nonce || ""; m.head.append(a) })); d[l] ? console.warn(p + " only loads once. Ignoring:", g) : d[l] = (f, ...n) => r.add(f) && u().then(() => d[l](f, ...n)) })
+	<link rel="icon" type="image/png" href="images/logo.png">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/search.css">
+
+	<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+  	<script>(g => { var h, a, k, p = "The Google Maps JavaScript API", c = "google", l = "importLibrary", q = "__ib__", m = document, b = window; b = b[c] || (b[c] = {}); var d = b.maps || (b.maps = {}), r = new Set, e = new URLSearchParams, u = () => h || (h = new Promise(async (f, n) => { await (a = m.createElement("script")); e.set("libraries", [...r] + ""); for (k in g) e.set(k.replace(/[A-Z]/g, t => "_" + t[0].toLowerCase()), g[k]); e.set("callback", c + ".maps." + q); a.src = `https://maps.${c}apis.com/maps/api/js?` + e; d[q] = f; a.onerror = () => h = n(Error(p + " could not load.")); a.nonce = m.querySelector("script[nonce]")?.nonce || ""; m.head.append(a) })); d[l] ? console.warn(p + " only loads once. Ignoring:", g) : d[l] = (f, ...n) => r.add(f) && u().then(() => d[l](f, ...n)) })
     ({ key: "AIzaSyBhnZQKdO2Vs0DT3aLvj6Q4G_VIeBMbiuA", v: "weekly" });</script>
-  <link rel="stylesheet" type="text/css" href="./style.css" />
+ 
 
-
-
+	<title>Lagcc Spring 2024 Hackathon</title>
 </head>
-
 <body>
-  <h3>Find Services</h3>
-  <input type="text" id="zipCodeInput" placeholder="Enter Zip Code">
-  <script type="module" src="./functions/buttons.js"></script>
-  <script type="module" src="./functions/map.js"></script>
-  <!-- <button id = "search" > search near</button> -->
-  <div id="container">
+	<div id="wrap"> <!---Wrap Start--->
+		<div id="wrap_body">
+		<div id="header" class="header"><!---header Start--->
+			<!---logo Start--->
+			<div id="logo" class="logo">&nbsp;</div>
+			<!---logo end--->
 
-  </div>
+			<div class="blank_top">&nbsp;</div>
 
 
-  <div id="map"></div>
+			<!---google_translate Start--->
+
+			<div id="google_translate" class="google_translate">
+
+		        <div id="google_translate_element"></div>
+
+		        <script type="text/javascript">
+		        function googleTranslateElementInit() {
+		          new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+		        }
+		        </script>
+
+		        <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+		    </div><!---google_translate end--->
+
+		</div><!---header end--->
+
+		<!---main_body Start--->
+		<div id="main_body" class="main_body">
+			<div id="finder" class="finder">
+				<find_sevices>FIND SERVICES</find_sevices>
+				<br>
+				<grey_font>Helping asylum seekers in the areas of healthcare, education and food security.</grey_font>
+			</div>
+		</div>
+
+
+
+
+ 
+        <div id="wrap">
+		<div id="search_container" class="search_container">
+			<input type="text" id="zipCodeInput" placeholder="Enter Zip Code">
+
+			<script type="module" src="./functions/buttons.js"></script>
+
+			<script type="module" src="./functions/map.js"></script>
+
+			<button id = "search"> search near</button>
+			<br>
+
+			<div id="container"></div>
+			
+
+
+		</div>
+		    <br>
+
+			<div id="map" class="search_map"></div>
+	</div>
+
+
+
+
+
+			 
+
+		
+
+		<!---main_body end--->
+
+	
+
+
+
+
+
+		<div id="footer">Copyright &copy; 2024  LAGCC Spring 2024 Hackathon: Xiaoyi Liu, Hongzhong Hu, and JC Burga  </div>
+
+
+
+
+	</div>
+	</div><!---wrap end--->
 
 
 </body>
-
 </html>
