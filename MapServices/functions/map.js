@@ -5,9 +5,9 @@ var searchButtons = document.getElementsByClassName("search");
 // Loop through the HTMLCollection
 for (var i = 0; i < searchButtons.length; i++) {
     // Attach event listener to each button
-    (function(index) {
+    (function (index) {
         var buttonText = searchButtons[index].textContent// Capture the text content of the button
-        searchButtons[index].addEventListener("click", function() {
+        searchButtons[index].addEventListener("click", function () {
             MapServices(buttonText); // Pass the captured text as a parameter
         });
     })(i);
@@ -21,8 +21,11 @@ async function MapServices(textContent) {
     const { Place, SearchNearbyRankPreference } = await google.maps.importLibrary("places");
     const zipCodeInput = document.getElementById("zipCodeInput");
     const zipCode = zipCodeInput.value;
-    console.log(textContent)
-    console.log(zipCode)
+    if (zipCode.length != 5) {
+        window.alert("Please enter valid zipcode")
+        return 
+    }
+    // console.log(zipCode)
     const textQuery = textContent
     map = new Map(document.getElementById("map"), {
         zoom: 12,
@@ -42,6 +45,8 @@ async function MapServices(textContent) {
                 // required parameters
                 textQuery: textQuery,
                 fields: ["displayName", "location", "businessStatus"],
+                locationBias: center,
+
                 maxResultCount: 10,
                 language: "en-US",
                 region: "us",
@@ -49,8 +54,6 @@ async function MapServices(textContent) {
             //@ts-ignore
             const { places } = await Place.searchByText(request);
             if (places.length) {
-                console.log(places);
-
                 const { LatLngBounds } = await google.maps.importLibrary("core");
                 const bounds = new LatLngBounds();
 
@@ -63,7 +66,7 @@ async function MapServices(textContent) {
                     });
 
                     bounds.extend(place.location);
-                    console.log(place);
+                    
                 });
                 map.fitBounds(bounds);
             } else {
